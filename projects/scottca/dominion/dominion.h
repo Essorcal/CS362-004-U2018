@@ -131,8 +131,8 @@ int getWinners(int players[MAX_PLAYERS], struct gameState *state);
  
 /* Bugged Functions */ 
 int smithyFunc(int currentPlayer, int handPos, struct gameState* state);
-int adventurerFunc(int handPos, struct gameState* state, int temphand[], int z);
-int stewardFunc(int choice1, int choice2, int choice3, int currentPlayer, struct gameState* state);
+int adventurerFunc(int currentPlayer, int handPos, struct gameState* state, int temphand[], int z);
+int stewardFunc(int handPos, int choice1, int choice2, int choice3, int currentPlayer, struct gameState* state);
 int villageFunc(int handPos, int currentPlayer, struct gameState* state);
 int great_hallFunc(int handPos, int currentPlayer, struct gameState* state);
  

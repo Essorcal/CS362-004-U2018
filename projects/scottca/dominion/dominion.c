@@ -667,7 +667,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
   switch( card ) 
     {
     case adventurer:
-		return adventurerFunc(handPos, gameState* state, temphand[], z);
+		return adventurerFunc(currentPlayer, handPos, gameState* state, temphand[], z);
 			
     case council_room:
       //+4 Cards
@@ -922,7 +922,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       return 0;
 		
     case steward:
-		return stewardFunc(choice1, choice2, choice3, currentPlayer, state)
+		return stewardFunc(handPos, choice1, choice2, choice3, currentPlayer, state);
 		
     case tribute:
       if ((state->discardCount[nextPlayer] + state->deckCount[nextPlayer]) <= 1){
@@ -1257,7 +1257,7 @@ int smithyFunc(int currentPlayer, int handPos, struct gameState* state)
 }
 
 
-int adventurerFunc(int handPos, struct gameState* state, int temphand[], int z)
+int adventurerFunc(int currentPlayer, int handPos, struct gameState* state, int temphand[], int z)
 {
 	
 	int drawntreasure = 0;
@@ -1285,7 +1285,7 @@ int adventurerFunc(int handPos, struct gameState* state, int temphand[], int z)
       return 0;	
 }
 
-int stewardFunc(int choice1, int choice2, int choice3, int currentPlayer, struct gameState* state)
+int stewardFunc(int handPos, int choice1, int choice2, int choice3, int currentPlayer, struct gameState* state)
 {
    if (choice1 == 1)
 	{
