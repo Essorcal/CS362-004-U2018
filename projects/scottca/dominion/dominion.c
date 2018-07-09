@@ -1285,7 +1285,7 @@ int adventurerFunc(int handPos, struct gameState* state, int temphand[], int z)
       return 0;	
 }
 
-int stewardFunc(int choice1, int choice2, int choice3, int currentPlayer, struct gameState* state
+int stewardFunc(int choice1, int choice2, int choice3, int currentPlayer, struct gameState* state)
 {
    if (choice1 == 1)
 	{
@@ -1310,7 +1310,7 @@ int stewardFunc(int choice1, int choice2, int choice3, int currentPlayer, struct
       return 0;
 }
 
-int villageFunc(int handPos, int currentPlayer, struct gameState* state);
+int villageFunc(int handPos, int currentPlayer, struct gameState* state)
 {
    //+1 Card
       drawCard(currentPlayer, state);
@@ -1323,7 +1323,7 @@ int villageFunc(int handPos, int currentPlayer, struct gameState* state);
       return 0;
 }
 
-int great_hallFunc(int handPos, int currentPlayer, struct gameState* state);
+int great_hallFunc(int handPos, int currentPlayer, struct gameState* state)
 {
       //+1 Card
       drawCard(currentPlayer, state);
