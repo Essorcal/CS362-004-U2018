@@ -1338,7 +1338,7 @@ int great_hallFunc(int handPos, int currentPlayer, struct gameState* state);
 
 /* ************************************************************
 					End Bugged Functions
-************************************************************* */	  
+************************************************************ */	  
 	  
 int updateCoins(int player, struct gameState *state, int bonus)
 {
