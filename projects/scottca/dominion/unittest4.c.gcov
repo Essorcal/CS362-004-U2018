@@ -1,0 +1,42 @@
+        -:    0:Source:unittest4.c
+        -:    0:Graph:unittest4.gcno
+        -:    0:Data:unittest4.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1://Unit Test 4
+        -:    2://Testing: testNumHandCards()
+        -:    3:
+        -:    4:/* Original Function
+        -:    5:
+        -:    6:int numHandCards(struct gameState *state) {
+        -:    7:  return state->handCount[ whoseTurn(state) ];
+        -:    8:}
+        -:    9:
+        -:   10:*/
+        -:   11:
+        -:   12:#include <stdlib.h>
+        -:   13:#include <stdio.h>
+        -:   14:#include "dominion.h"
+        -:   15:#include "dominion_helpers.h"
+        -:   16:
+        1:   17:void testNumHandCards()
+        -:   18:{
+        -:   19:	struct gameState testState;
+        1:   20:	int players = 2;
+        1:   21:	int seed = 100;
+        1:   22:	int k[10] = {adventurer, smithy, steward, village, great_hall, gardens, mine, feast, council_room, baron};
+        1:   23:	initializeGame(players, k, seed, &testState);	
+        -:   24:  
+        -:   25:  // At the start of a game, the player should have 5 cards.
+        1:   26:  if (numHandCards(&testState) == 5)
+        1:   27:    printf("numHandcards function: PASS - Player has the correct number of cards\n");
+        -:   28:  else
+    #####:   29:    printf("numHandCards function: FAIL - Player has the incorrect number of cards\n");
+        1:   30:}
+        -:   31:
+        -:   32:
+        1:   33:int main(int argc, char * argv[])
+        -:   34:{
+        1:   35:  testNumHandCards();
+        1:   36:  return 0;
+        -:   37:}

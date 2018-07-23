@@ -1,0 +1,58 @@
+        -:    0:Source:unittest1.c
+        -:    0:Graph:unittest1.gcno
+        -:    0:Data:unittest1.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1://Unit Test 2
+        -:    2://Testing: whoseTurn()
+        -:    3:
+        -:    4:/* Original Function
+        -:    5:
+        -:    6:int whoseTurn(struct gameState *state) {
+        -:    7:  return state->whoseTurn;
+        -:    8:}
+        -:    9:*/
+        -:   10:
+        -:   11:#include "dominion.h"
+        -:   12:#include "dominion_helpers.h"
+        -:   13:#include "rngs.h"
+        -:   14:#include <stdio.h>
+        -:   15:#include <stdlib.h>
+        -:   16:
+        1:   17:void testWhoseTurn()
+        -:   18:{
+        -:   19:	struct gameState testState;
+        1:   20:	int players = 2;
+        1:   21:	int seed = 100;
+        1:   22:	int k[10] = {adventurer, smithy, steward, village, great_hall, gardens, mine, feast, council_room, baron};
+        1:   23:	initializeGame(players, k, seed, &testState);
+        -:   24:
+        1:   25:	testState.whoseTurn = 0;
+        -:   26:	
+        1:   27:	if (0 == whoseTurn(&testState))
+        -:   28:	{
+        1:   29:		printf("whoseTurn function: PASS - Player 1's turn");
+        -:   30:	}
+        -:   31:	else
+        -:   32:	{
+    #####:   33:		printf("whoseTurn function: FAIL - Player 2's turn");
+        -:   34:	}
+        -:   35:	
+        1:   36:	testState.whoseTurn = 1;
+        -:   37:	
+        1:   38:	if (1 == whoseTurn(&testState))
+        -:   39:	{
+        1:   40:		printf("whoseTurn function: PASS - Player 2's turn");
+        -:   41:	}
+        -:   42:	else
+        -:   43:	{
+    #####:   44:		printf("whoseTurn function: FAIL - Player 1's turn");
+        -:   45:	}
+        1:   46:}
+        -:   47:
+        -:   48:
+        1:   49:int main(int argc, char *argv[])
+        -:   50:{
+        1:   51:  testWhoseTurn();
+        1:   52:  return 0;
+        -:   53:}

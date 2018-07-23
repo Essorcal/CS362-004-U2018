@@ -1,0 +1,60 @@
+        -:    0:Source:cardtest1.c
+        -:    0:Graph:cardtest1.gcno
+        -:    0:Data:cardtest1.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1://Card Test 1
+        -:    2://Smithy
+        -:    3:
+        -:    4:#include <stdlib.h>
+        -:    5:#include <stdio.h>
+        -:    6:#include <assert.h>
+        -:    7:#include "dominion.h"
+        -:    8:#include "dominion_helpers.h"
+        -:    9:#include "rngs.h"
+        -:   10:
+        5:   11:void simpleAssert(int i, int j) {
+        5:   12:    if (i == j) {
+        3:   13:        printf("simpleAssert: PASS\n");
+        -:   14:    }
+        -:   15:    else {
+        2:   16:        printf("simpleAssert: FAIL\n");
+        -:   17:    }
+        5:   18:}
+        -:   19:
+        1:   20:int main () {
+        -:   21:    int i;
+        1:   22:    int players = 2;
+        1:   23:    int player1 = 0;
+        1:   24:    int player2 = 1;
+        1:   25:    int handpos = 0, choice1 = 0, choice2 = 0, choice3 = 0, bonus = 0;
+        1:   26:	int k[10] = {adventurer, smithy, steward, village, great_hall, gardens, mine, feast, council_room, baron};
+        1:   27:    int seed = 100;
+        -:   28:    struct gameState state, testState;
+        -:   29:
+        1:   30:    initializeGame(players, k, seed, &state);
+        -:   31:
+        1:   32:    memcpy(&testState, &state, sizeof(struct gameState));
+        -:   33:	
+        -:   34:	//Test 1: Gain 3 Cards
+        1:   35:    cardEffect(smithy, choice1, choice2, choice3, &state, handpos, &bonus);
+        -:   36:
+        1:   37:    printf("\nPlayer1 gains 3 cards\n");
+        1:   38:    simpleAssert(state.handCount[player1],testState.handCount[player1]+3);
+        -:   39:
+        1:   40:    printf("\nPlayer1 gains 3 cards from his own pile\n");
+        1:   41:    simpleAssert(state.deckCount[player1],testState.deckCount[player1]-3);
+        -:   42:
+        -:   43:	
+        -:   44:	//Test 2: Check Victory Cards
+        1:   45:	memcpy(&testState, &state, sizeof(struct gameState));
+        1:   46:    cardEffect(smithy, choice1, choice2, choice3, &state, handpos, &bonus);
+        1:   47:	printf("\nProvince");
+        1:   48:    simpleAssert(state.supplyCount[province],testState.supplyCount[province]);
+        1:   49:    printf("\nDuchy");
+        1:   50:	simpleAssert(state.supplyCount[duchy],testState.supplyCount[duchy]);
+        1:   51:    printf("\nEstate");
+        1:   52:	simpleAssert(state.supplyCount[estate],testState.supplyCount[estate]);
+        -:   53:
+        1:   54:    return 0;
+        -:   55:}

@@ -1,0 +1,51 @@
+unittest1 Testing
+whoseTurn function: PASS - Player 1's turnwhoseTurn function: PASS - Player 2's turnFile 'unittest1.c'
+Lines executed:88.24% of 17
+Creating 'unittest1.c.gcov'
+
+unittest2 Testing
+compare function: PASS - High Value > Low Value 
+compare function: PASS - Low Value < High Value 
+compare function: PASS - High Value > Low Value 
+compare function: FAIL - High Value != High Value 
+File 'unittest2.c'
+Lines executed:80.95% of 21
+Creating 'unittest2.c.gcov'
+
+unittest3 Testing
+buyCard function: PASS when no action is available
+buyCard function: PASS when no cards are in the stockpile 
+buyCard function: PASS when insufficients funds to purchase 
+buyCard function: PASS Successfully bought card
+File 'unittest3.c'
+Lines executed:85.71% of 28
+Creating 'unittest3.c.gcov'
+
+unittest4 Testing
+numHandcards function: PASS - Player has the correct number of cards
+File 'unittest4.c'
+Lines executed:91.67% of 12
+Creating 'unittest4.c.gcov'
+
+cardtest1 Testing
+
+Player1 gains 3 cards
+simpleAssert: FAIL
+
+Player1 gains 3 cards from his own pile
+simpleAssert: FAIL
+
+ProvincesimpleAssert: PASS
+
+DuchysimpleAssert: PASS
+
+EstatesimpleAssert: PASS
+File 'cardtest1.c'
+Lines executed:100.00% of 28
+Creating 'cardtest1.c.gcov'
+
+Dominion.c coverage
+File 'dominion.c'
+Lines executed:25.99% of 558
+Creating 'dominion.c.gcov'
+
