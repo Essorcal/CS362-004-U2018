@@ -40,15 +40,16 @@ int main ()
       
 		int play;
 
-		play = cardEffect(smithy, choice1, choice2, choice3, &state, handpos, &bonus);
+		play = cardEffect(adventurer, choice1, choice2, choice3, &state, handpos, &bonus);
 
 		if (play > -1)
 		 {
-			printf("\nPlayer1 gains 3 cards\n");
-			simpleAssert(state.handCount[player1],testState.handCount[player1]+3); 
+			printf("\nPlayer1 gains 2 cards\n");
+			simpleAssert(state.handCount[player1],testState.handCount[player1]+2); 
 				
-			printf("\nPlayer1 gains 3 cards from his own pile\n");
-			simpleAssert(state.deckCount[player1],testState.deckCount[player1]-3);
+			printf("\nPlayer1 gains 2 cards from his own pile\n");
+			simpleAssert(state.deckCount[player1],testState.deckCount[player1]-2);
+			
 		 }
     }
   }
