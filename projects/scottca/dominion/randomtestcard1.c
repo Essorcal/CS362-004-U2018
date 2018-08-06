@@ -28,16 +28,16 @@ int main ()
 	
     int players = 2;
 
-    for (i = 2; i < 5; i++)
+    for (players = 2; players < 5; players++)
     {
 		int player1 = 0;
 		int player2 = 1;
 		int handpos = 0, choice1 = 0, choice2 = 0, choice3 = 0, bonus = 0;
 		int k[10] = {adventurer, smithy, steward, village, great_hall, gardens, mine, feast, council_room, baron};
-		struct gameState G, prevG;
-		memset(&G, 23, sizeof(struct gameState));
+		struct gameState state, testState;
+		memset(&state, 23, sizeof(struct gameState));
 		initializeGame(players, k, t, &G);
-		memcpy(&prevG, &G, sizeof(struct gameState));
+		memcpy(&testState, &state, sizeof(struct gameState));
       
 		int play;
 
