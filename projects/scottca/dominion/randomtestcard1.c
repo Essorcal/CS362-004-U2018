@@ -41,7 +41,7 @@ int main ()
       
 		int play;
 
-		play = cardEffect(smithy, choice1, choice2, choice3, &G, handpos, &bonus);
+		play = cardEffect(smithy, choice1, choice2, choice3, &state, handpos, &bonus);
 
 		if (play > -1)
 		 {
