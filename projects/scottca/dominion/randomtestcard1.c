@@ -23,8 +23,8 @@ int main ()
   for (j = 0; j < 100; j++)
   {
     srand(time(NULL));
-    int t;
-    t = rand() % 100;
+    int seed;
+    seed = rand() % 100;
 	
     int players = 2;
 
@@ -36,7 +36,7 @@ int main ()
 		int k[10] = {adventurer, smithy, steward, village, great_hall, gardens, mine, feast, council_room, baron};
 		struct gameState state, testState;
 		memset(&state, 23, sizeof(struct gameState));
-		initializeGame(players, k, t, &G);
+		initializeGame(players, k, seed, &state);
 		memcpy(&testState, &state, sizeof(struct gameState));
       
 		int play;
